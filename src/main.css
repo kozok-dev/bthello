@@ -1,0 +1,263 @@
+@charset "utf-8";
+/* スタイルシート */
+
+html {
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+body {
+	background-color: #adc;
+	display: table-cell;
+	vertical-align: middle;
+}
+body, button {
+	color: #232;
+	font-family: sans-serif;
+}
+
+#main {
+	padding: 5px;
+	background-color: #bed;
+	line-height: 0;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+#screen {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	color: #262;
+	background-color: #bed;
+	font-size: 200%;
+	text-align: center;
+	display: table;
+}
+#screen span {
+	vertical-align: middle;
+	display: table-cell;
+}
+#test {
+	position: absolute;
+	top: -99px;
+}
+[data-ruby] {
+	position: relative;
+}
+[data-ruby]:after {
+	position: absolute;
+	top: -1em;
+	left: 0;
+	right: 0;
+	font-size: 50%;
+	text-align: center;
+	letter-spacing: 2px;
+	white-space: nowrap;
+	content: attr(data-ruby);
+}
+
+#messageContainer {
+	width: 30%;
+	min-width: 300px;
+	max-width: 600px;
+}
+#messageBorder {
+	position: relative;
+	border: 3px solid #363;
+	border-radius: 10px;
+	background-color: #fff;
+}
+#messageBorder:before {
+	position: absolute;
+	bottom: -20px;
+	left: calc(50% - 10px);
+	border-top: 20px solid #363;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+	content: "";
+}
+#messageBorder:after {
+	position: absolute;
+	bottom: -14px;
+	left: calc(50% - 10px);
+	border-top: 20px solid #fff;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+	content: "";
+}
+#message {
+	margin: 10px;
+	height: 120px;
+	font-size: 120%;
+	line-height: initial;
+	overflow: auto;
+	overflow-wrap: break-word;
+	word-break: break-word;
+}
+#messageWait {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	display: none;
+}
+#messageWait:before {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	border-top: 15px solid #797;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+	content: "";
+}
+#messageChara {
+	margin-top: 20px;
+	text-align: center;
+	line-height: 0;
+}
+#messageChara img {
+	width: 128px;
+	height: 128px;
+}
+#stand {
+	margin: 0 auto;
+	width: 250px;
+	height: 100px;
+	background: linear-gradient(#9cb, #bed);
+}
+
+#boardContainer {
+	margin-left: 10px;
+	position: relative;
+	width: 70%;
+	min-width: 500px;
+	max-width: 95vmin;
+	overflow: hidden;
+}
+#board {
+	border-radius: 5px;
+	background-color: #021;
+}
+
+#dialog {
+	padding: 1%;
+	position: absolute;
+	width: 60%;
+	max-height: 90%;
+	top: 50%;
+	left: 50%;
+	border: 5px solid #aea;
+	border-radius: 20px;
+	background-color: rgba(129, 200, 129, 0.9);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+	font-size: 120%;
+	text-align: center;
+	line-height: normal;
+	overflow: auto;
+	display: none;
+}
+#dialog span {
+	margin: 1% 0;
+	text-align: start;
+	display: inline-block;
+}
+#dialog button {
+	margin: 20px auto;
+	padding: 5% 0;
+	width: 70%;
+	border: 3px solid #373;
+	border-radius: 10px;
+	background-color: #9d9;
+	font-size: 100%;
+	display: block;
+}
+#dialog button.active, #dialog button:not(.disable):hover {
+	border-color: #585;
+	background-color: #aea;
+}
+
+.end #dialog, .end button {
+	font-family: serif;
+}
+.end #messageBorder, .end #messageChara {
+	visibility: hidden;
+}
+
+@media screen and (max-width: 819px) {
+#main {
+	padding: unset;
+	display: block;
+}
+#stand {
+	display: none;
+}
+
+#messageContainer {
+	margin: 0 auto;
+	width: 100%;
+	max-width: unset;
+	display: flex;
+	justify-content: center;
+}
+#messageBorder {
+	width: calc(100% - 145px);
+	max-width: 500px;
+}
+#messageBorder:before {
+	top: calc(50% - 10px);
+	bottom: unset;
+	right: -20px;
+	left: unset;
+	border-top: 10px solid transparent;
+	border-right: unset;
+	border-bottom: 10px solid transparent;
+	border-left: 20px solid #363;
+}
+#messageBorder:after {
+	top: calc(50% - 10px);
+	bottom: unset;
+	right: -14px;
+	left: unset;
+	border-top: 10px solid transparent;
+	border-right: unset;
+	border-bottom: 10px solid transparent;
+	border-left: 20px solid #fff;
+}
+#message {
+	height: 102px;
+}
+#messageChara {
+	margin-top: unset;
+	width: 145px;
+	text-align: right;
+}
+
+#boardContainer {
+	margin: 0 auto;
+	width: 100%;
+	min-width: 320px;
+	max-width: unset;
+}
+}
+
+@media screen and (max-width: 599px) {
+#message, #dialog {
+	font-size: 100%;
+}
+}
+
+@media screen and (max-width: 479px) {
+#message {
+	margin: 5px;
+	font-size: 80%;
+}
+#dialog {
+	width: 70%;
+	font-size: 80%;
+}
+#dialog button {
+	margin: 15px auto;
+}
+}
